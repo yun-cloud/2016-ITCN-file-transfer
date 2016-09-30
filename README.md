@@ -55,6 +55,7 @@ You should implement following functions in your server.
 
 - User can assign **port** to server
 - Returns files list to client when the client connects immediately to the server. (We have provided this function which scans all the file under the same directory.)  
+
 	```sh
 	# Client side
 	$ ./client 127.0.0.1
@@ -67,7 +68,9 @@ You should implement following functions in your server.
 	-----------
 	Enter the filename:
 	```
-- Returns files which client wants to download.  
+
+- Returns files which client wants to download.
+
 	```sh
 	# Client side
 	Enter the filename: 123.txt
