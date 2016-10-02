@@ -1,7 +1,7 @@
 all: server.c client.c
-	gcc server.c -o server.o
-	gcc client.c -o client.o
+	gcc server.c -o server
+	gcc client.c -o client
 
 clean:
-	rm -rf server.o
-	rm -rf client.o
+	rm -rf server
+	rm -rf client

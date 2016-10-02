@@ -27,12 +27,12 @@ You can click `Download ZIP` to download a zip file directly
 What in makefile
 ```makefile
 all: server.c client.c
-	gcc server.c -o server.o
-	gcc client.c -o client.o
+	gcc server.c -o server
+	gcc client.c -o client
 
 clean:
-	rm -rf server.o
-	rm -rf client.o
+	rm -rf server
+	rm -rf client
 ```
 
 ### compile  
@@ -42,11 +42,11 @@ $ make
 
 ### run
 ```sh
-$ ./server.o 8888
+$ ./server 8888
 ```
 Open another termial.
 ```sh
-$ ./client.o 127.0.0.1 8888
+$ ./client 127.0.0.1 8888
 ```
 
 ## Requirement
@@ -84,7 +84,6 @@ You should implement following functions in your server.
 - User can assign **ip address** and **port** to connect the server with command line argument.
 - Support user inputs the file name to download file from server, per file per input.
 - Input `.exit` to disconnect from server.
-Note:
 
 **NOTE:** Server and client should keep connected unless user inputs `.exit`
 
