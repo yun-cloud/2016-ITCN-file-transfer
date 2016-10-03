@@ -2,8 +2,8 @@
 ## Today's mission
 
 You will need to write simple file transfer client and server in language `C`.  
-Please modify to the sample code to achieve this goal.  
-Fill in your own code by following the hint in the code.  
+Please modify the sample code to achieve this goal.  
+Fill in your own code by following the **TODO Hint** in the code.  
 
 ```c
 /**
