@@ -88,15 +88,16 @@ You should implement following functions in your server.
 **NOTE:** Server and client should keep connected unless user inputs `.exit`
 
 ## Deadline
-If your team don't finish the lab in the class, you can still demonstrate this lab when TA time (15:30 ~ 17:20 on Wed.)
-Please also uplaod your code to ilms system
+Please also uplaod **your code** and **a screenshot of your result** to ilms system.
 
-- Deadline: 100%, before 2016/11/21 (Mon.)
-- Deadline: 80%, before 2016/11/28 (Mon.)
-- Deadline: 60%, before 2016/12/5 (Mon.)
+- Deadline: 100%, before 2016/11/21 23:59 (Mon.)
+- Deadline: 80%, before 2016/11/28 23:59 (Mon.)
+- Deadline: 60%, before 2016/12/5 23:59 (Mon.)
 
-After 2016/12/7, your submission is not accepted.
+After 2016/12/5, your submission is not accepted.
 
-## Problems
-
-Filling any problem in [issues](https://github.com/HSNL-TAs/2016-ITCN-file-transfer/issues) or nthu ilms is welcome.
+## Question
+Please feel free to ask questions at
+- [Here](https://github.com/HSNL-TAs/2016-ITCN-file-transfer/issues), or
+- On the iLms forum, or
+- Come at Office Hour (15:30 ~ 17:20 on Wednesday, 綜二 705)
