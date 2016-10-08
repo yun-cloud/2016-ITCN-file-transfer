@@ -89,6 +89,7 @@ You should implement following functions in your server.
 
 ## Deadline
 Please also uplaod **your code** and **a screenshot of your result** to ilms system.
+( Package them as `.zip` format and name after your **student ID**)
 
 - Deadline: 100%, before 2016/11/21 23:59 (Mon.)
 - Deadline: 80%, before 2016/11/28 23:59 (Mon.)
