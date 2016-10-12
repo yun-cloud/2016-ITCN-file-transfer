@@ -91,11 +91,11 @@ You should implement following functions in your server.
 Please also uplaod **your code** and **a screenshot of your result** to ilms system.
 ( Package them as `.zip` format and name after your **student ID**)
 
-- Deadline: 100%, before 2016/11/21 23:59 (Mon.)
-- Deadline: 80%, before 2016/11/28 23:59 (Mon.)
-- Deadline: 60%, before 2016/12/5 23:59 (Mon.)
+- Deadline: 100%, before 2016/11/20 23:59 (Sun.)
+- Deadline: 80%, before 2016/11/27 23:59 (Sun.)
+- Deadline: 60%, before 2016/12/4 23:59 (Sun.)
 
-After 2016/12/5, your submission is not accepted.
+After 2016/12/4, your submission is not accepted.
 
 ## Question
 Please feel free to ask questions at
