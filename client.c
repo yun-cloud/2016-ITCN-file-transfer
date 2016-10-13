@@ -1,4 +1,9 @@
-#include <stdio.h>
+/**
+ * Simple File Transfer Client For 2016 Introduction to Computer Network.
+ * Author: vicky-sunshine @ HSNL
+ * 2016/10
+ * **/
+ #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>  /* contains a number of basic derived types */

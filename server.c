@@ -1,3 +1,8 @@
+/**
+ * Simple File Transfer Server For 2016 Introduction to Computer Network.
+ * Author: vicky-sunshine @ HSNL
+ * 2016/10
+ * **/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
