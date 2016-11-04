@@ -58,7 +58,7 @@ You should implement following functions in your server.
 
 	```sh
 	# Client side
-	$ ./client 127.0.0.1
+	$ ./client 127.0.0.1 8888
 	[✓] Connect to server.
 	[✓] Server reply!
 	-----------
