@@ -17,8 +17,13 @@ Fill in your own code by following the **TODO Hint** in the code.
 
 You can click `Download ZIP` to download a zip file directly
 
+![](https://raw.githubusercontent.com/HSNL-TAs/2016-ITCN-file-transfer/master/download_zip.png)
+
 ### With Git
-1. Install Git on your system
+1. Install `Git` on your system
+	```shell
+	$ sudo apt-get install git
+	```
 2. Open command prompt
 3. Input `git clone https://github.com/HSNL-TAs/2016-ITCN-file-transfer.git`
 
@@ -51,8 +56,6 @@ $ ./client 127.0.0.1 8888
 
 ## Requirement
 ### Server
-You should implement following functions in your server.
-
 - User can assign **port** to server
 - Returns files list to client when the client connects immediately to the server. (We have provided this function which scans all the file under the same directory.)  
 
@@ -63,7 +66,8 @@ You should implement following functions in your server.
 	[✓] Server reply!
 	-----------
 	Files on server:
-	123.txt
+	lab3_2_spec.pdf
+	test.png
 	test.txt
 	-----------
 	Enter the filename:
@@ -73,8 +77,8 @@ You should implement following functions in your server.
 
 	```sh
 	# Client side
-	Enter the filename: 123.txt
-	[-] Downloading `123.txt` ...
+	Enter the filename: test.txt
+	[-] Downloading `test.txt` ...
 	[✓] Download successfully!
 	-----------
 	Enter the filename: # user can continue to send download request.
@@ -86,6 +90,9 @@ You should implement following functions in your server.
 - Input `.exit` to disconnect from server.
 
 **NOTE:** Server and client should keep connected unless user inputs `.exit`
+
+## Example
+![](https://raw.githubusercontent.com/HSNL-TAs/2016-ITCN-file-transfer/master/example_screenshot.png)
 
 ## Deadline
 Please also uplaod **your code** and **a screenshot of your result** to ilms system.
