@@ -1,9 +1,10 @@
 /**
  * Simple File Transfer Client For 2016 Introduction to Computer Network.
- * Author: vicky-sunshine @ HSNL
+ * Author: vicky-sunshine @ HSNL-TAs
  * 2016/10
  * **/
- #include <stdio.h>
+
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>  /* contains a number of basic derived types */
@@ -80,12 +81,13 @@ void connection_handler (int sockfd) {
         }
 
         /** TODO:
-            send requested fileName to server
+            send requested file name to server
         **/
 
         /* download this file */
         file_download_handler(sockfd, filename);
 
+        /* send next file request*/
         printf("-----------\nEnter the filename: ");
     }
     printf("[x] Socket closed\n");
@@ -115,7 +117,7 @@ void file_download_handler(int sockfd, char filename[]) {
   sprintf(path, "./download/%s", filename);
 
   read_sum = 0;
-  fp = fopen(path, "wb+");
+  fp = fopen(path, "wb");
   if (fp) {
       while (read_sum < file_size) {
         memset(buf, '\0', MAX_SIZE);

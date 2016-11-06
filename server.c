@@ -3,6 +3,7 @@
  * Author: vicky-sunshine @ HSNL
  * 2016/10
  * **/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -160,7 +161,7 @@ void file_sending_handler(int sockfd, char filename[]) {
   int write_sum = 0;    //  bytes have been sent
 
   sprintf(path, "remote_storage/%s", filename);
-  fp = fopen(path, "rb+");
+  fp = fopen(path, "rb");
   if (fp) {
     /* send start downloading message */
     memset(buf, '\0', MAX_SIZE);
