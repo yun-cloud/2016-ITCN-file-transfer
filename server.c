@@ -217,3 +217,5 @@ void file_sending_handler(int sockfd, char filename[]) {
     return;
   }
 }
+
+// vim: set expandtab softtabstop=2 shiftwidth=2 tabstop=2:
