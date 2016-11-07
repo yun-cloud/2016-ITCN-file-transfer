@@ -36,8 +36,8 @@ int main (int argc, char **argv) {
     preparing sockaddr_in
   **/
   bzero(&svr_addr, sizeof(svr_addr));
-  svr_addr.sin_family = /* protocol stack */;
-  svr_addr.sin_port = /* bind port */);
+  svr_addr.sin_family = AF_INET;
+  svr_addr.sin_port = htons(atoi(argv[2]));
   if (inet_pton(AF_INET, argv[1], &svr_addr.sin_addr) <= 0) {
      perror("Address converting fail with wrong address argument");
      return 0;
@@ -73,6 +73,12 @@ void connection_handler (int sockfd) {
       TODO:
       read file list from server
     **/
+    while (1) {
+      memset(buf, '\0', MAX_SIZE);
+      read(sockfd, buf, MAX_SIZE);
+      if (buf[0] == '\0') break;
+      printf("%s\n", buf);
+    }
 
     printf("-----------\nEnter the filename: ");
     while (scanf(" %s", filename) > 0) {
@@ -83,6 +89,10 @@ void connection_handler (int sockfd) {
         /** TODO:
             send requested file name to server
         **/
+        if (write(sockfd, filename, strlen(filename)) < 0) {
+          printf("send requested file name failed");
+          break;
+        }
 
         /* download this file */
         file_download_handler(sockfd, filename);
@@ -126,6 +136,7 @@ void file_download_handler(int sockfd, char filename[]) {
           TODO:
           receive file data from server
         **/
+        read_byte = read(sockfd, buf, MAX_SIZE);
 
         /* write file to local disk*/
         fwrite(&buf, sizeof(char), read_byte, fp);

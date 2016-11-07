@@ -43,24 +43,36 @@ int main(int argc, char **argv) {
     TODO:
     preparing sockaddr_in
   **/
+  int port = 8888;
+  if (argc > 1) {
+    port = atoi(argv[1]);
+  }
   bzero(&svr_addr, sizeof(svr_addr));
-  svr_addr.sin_family = /* Protocol stack */;
+  svr_addr.sin_family = AF_INET;
   svr_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-  svr_addr.sin_port = /* Bind port */;
+  svr_addr.sin_port = htons(port);
 
   /**
     TODO:
     bind the socket to port, with prepared sockaddr_in structure
   **/
+  if (bind(svr_fd, (struct sockaddr*)&svr_addr , sizeof(svr_addr)) < 0) {
+    perror("Bind socket failed.");
+    exit(1);
+  }
 
   /**
     TODO:
     listen on socket
   **/
+  if (listen(svr_fd, MAX_CONNECTION) < 0) {
+    perror("Listen socket failed.");
+    exit(1);
+  }
 
   printf("File transfer server started\n");
   printf("Maximum connections set to %d\n", MAX_CONNECTION);
-  printf("Listening on %s:%d\n", inet_ntoa(svr_addr.sin_addr), atoi(argv[1]));
+  printf("Listening on %s:%d\n", inet_ntoa(svr_addr.sin_addr), port);
   printf("Waiting for client...\n\n");
 
 
@@ -70,6 +82,11 @@ int main(int argc, char **argv) {
       TODO:
       accept client connections
     **/
+    cli_fd = accept(svr_fd, (struct sockaddr*) &cli_addr, (socklen_t*) &addr_len);
+    if (cli_fd < 0) {
+      perror("Accept failed");
+      exit(1);
+    }
 
     printf("[INFO] Connection accepted (id: %d)\n", cli_fd);
     printf("[INFO] Client is from %s:%d\n", inet_ntoa(cli_addr.sin_addr), ntohs(cli_addr.sin_port));
@@ -134,7 +151,7 @@ void file_listing_handler(int sockfd) {
   }
 
   /* traversing files in remote storage and sending filenames to client*/
-  memset(buf, '\0', MAX_SIZE);
+  //memset(buf, '\0', MAX_SIZE);
   while ((pDirent = readdir(pDir)) != NULL) {
       /* ignore current directory and parent directory */
       if (strcmp(pDirent->d_name, ".") == 0 || strcmp(pDirent->d_name, "..") == 0) {
@@ -145,6 +162,18 @@ void file_listing_handler(int sockfd) {
         TODO:
         send filenames to client
       **/
+    memset(buf, '\0', MAX_SIZE);
+    sprintf(buf, "%s", pDirent->d_name);
+    if (write(sockfd, buf, MAX_SIZE) < 0) {
+      printf("send filenames failed\n");
+      return;
+    }
+  }
+
+  memset(buf, '\0', MAX_SIZE);
+  if (write(sockfd, buf, 1) < 0) {
+    printf("send termination of listing file failed\n");
+    return;
   }
 
   closedir(pDir);
@@ -183,6 +212,10 @@ void file_sending_handler(int sockfd, char filename[]) {
       TODO:
       send file size to client
     **/
+    if (write(sockfd, buf, MAX_SIZE) < 0) {
+      printf("send file size failed\n");
+      return;
+    }
 
     /* read file data and send to client */
     write_sum = 0;
@@ -196,6 +229,10 @@ void file_sending_handler(int sockfd, char filename[]) {
         TODO:
         send file data to client
       **/
+      if (write(sockfd, buf, write_byte) < 0) {
+        printf("send file data failed\n");
+        return;
+      }
 
       write_sum += write_byte;
     }
